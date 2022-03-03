@@ -48,111 +48,68 @@ header h2 {
     text-shadow: 5px 5px 12px;
 }
 
-/* horizonatal inline navigation menu
-#nav_menu{
-    margin: 0;
-
-
+/* horizontal flex box */
+#navmenu{
+    position: sticky;
+    top: 0;
 }
-
-#nav_menu ul{
+.container{
+    display: flex;
     list-style: none;
-    text-align: center;
-    border-top: 1px solid steelblue;
-    border-bottom: 1px solid steelblue;
     background-color: steelblue;
-    padding-top: 10px;
-    padding-bottom: 10px;
 }
-
-#nav_menu ul li{
-    display: inline;
-    border-right: 2px solid black;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    padding-left: 3em;
-    padding-right: 3em;
-    
-
-}
-
-#nav_menu #last{
-    border-right: none;
-}
-
-#nav_menu ul li a{
-    font-weight: bold;
-    text-decoration: none;
-    color: white;
-}
-
-#nav_menu ul li a:hover{
-    color: red;
-}
-
-#nav_menu ul li:hover{
-
-}
-*/
-
-/* Nav menu vertical navigation start */
-
-#nav_menu{
-    border-bottom: 2px solid steelblue;
-}
-
-#nav_menu ul{
-    margin: 0;
-    padding: 0;
-    list-style-type: none;
-    position: relative;
-}
-
-#nav_menu ul li{
-    float: left;
-    width: 20%;
-}
-
-#nav_menu ul li a{
-    text-align: center;
-    display: block;
-    padding: .7em 0;
-    background-color: steelblue;
-    font-weight: bold;
-    color: white;
-    text-decoration: none;
-}
-
-#nav_menu ul ul{
+.container ul{
     display: none;
+}
+.container li{
+    flex: 1;
+}
+.container li a{
+    display: block;
+    padding: .75em 1em;
+    text-decoration: none;
+    color: white;
+    background-color: steelblue;
+    font-weight: bold;
+    transition: all 1s;
+}
+.container li a:hover{
+    background-color: lightsteelblue;
+    color: black;
+}
+/* second tier */
+.container ul{
+    width: 20%;
+    list-style: none;
     position: absolute;
     top: 100%;
-    width: 100%;
 }
+.container ul li{
+    flex-direction: column;
 
-#nav_menu ul ul li{
-    float: none;
 }
-
-#nav_menu ul li:hover > ul{
+.container ul li a{
+    text-align: left;
+    padding-left: 1em;
+}
+.container li:hover > ul{
     display: block;
 }
-
-#nav_menu > ul::after{
-    content: "";
-    clear: both;
-    display: block;
-}
-
-#nav_menu ul li a:hover{
-    background-color: lightsteelblue;
-}
-/* Nav menu vertical navigation stop */
+/* second tier */
+/* horizontal flex box stop */
 
 
 main{
     padding: 0  1em;
     clear: both;
+}
+main h1{
+    text-align: center;
+    font-size: 300%;
+    color: lightsteelblue;
+    margin: 10px 0 0;
+    font-variant: small-caps;
+    text-shadow: 1px 1px 2px black, -1px -1px 2px black, -1px 1px 2px black, 1px -1px 2px black;
 }
 
 aside{
@@ -163,6 +120,7 @@ aside{
 #nav_list h2{
     margin-bottom: 5px;
     text-align: center;
+    color: maroon;
 }
 
 #nav_list ul{
@@ -185,17 +143,25 @@ aside{
     padding: .5em 0 .5em .5em;
     color: black;
     border-radius: 25px;
+    transition: all 1s;
 }
 
 #nav_list ul li a:hover{
     background-color: steelblue;
     color: white;
+    padding: .5em 0 .5em 1.5em;
 }
 
 section{
     width: 40%;
     float: left;
     padding-right: 5px;
+}
+section h3{
+    padding-top: .5em;
+}
+section p{
+    size: 150%;
 }
 
 #leftaside{
@@ -208,10 +174,15 @@ section{
 }
 
 blockquote{
+    width: 80%;
+    margin: 1em auto;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 120%;
     font-style: italic;
     padding: 1em;
     border-left: 3px solid steelblue;
     background-color: lightgray;border-radius: 5px;
+    border-radius: 5px;
 }
 
 h3 {
@@ -271,6 +242,13 @@ footer p{
         box-shadow: none;
         font-size: 90%;
     }
+    #leftaside{
+        display: none;
+    }
+    section{
+        width: 70%;
+        padding-left: 1em;
+    }
   }
 
 @media only screen and (max-width: 767px) {
@@ -284,6 +262,9 @@ footer p{
         background-color: steelblue !important;
     }
     header h2 {
+        font-size: 200%;
+    }
+    h1{
         font-size: 200%;
     }
     section, aside{
